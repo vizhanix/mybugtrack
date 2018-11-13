@@ -86,6 +86,7 @@ namespace MyAssignmentBugTrack
         private void btn_regester_Click(object sender, EventArgs e)
         {
             RegesterForm regfrm = new RegesterForm();
+            this.Hide();
             regfrm.Show();
          
         }
