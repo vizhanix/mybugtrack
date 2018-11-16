@@ -13,7 +13,7 @@ namespace MyAssignmentBugTrack.Tester
 {
     public partial class BugReport : Form
     {
-        int id;
+        int id,count = 0;
         string reporter = "";
         string combotext = "";
         string theDate;
@@ -49,8 +49,6 @@ namespace MyAssignmentBugTrack.Tester
 
         private void dataGridView1_MouseClick(object sender, MouseEventArgs e)
         {
-        
-
             string connectString = "Data Source=localhost;Database = bugtrackapp ;User Id= root;Password=;SslMode=none";
             MySqlConnection myconn = new MySqlConnection(connectString);
             MySqlCommand command = myconn.CreateCommand();
@@ -60,10 +58,10 @@ namespace MyAssignmentBugTrack.Tester
 
             MySqlDataReader reader = command.ExecuteReader();
 
-            while (reader.Read())
+            while (reader.Read() && count < 1)
             {
                 comboBox1.Items.Add(reader.GetString("pname"));
-
+               
             }
 
             id = Convert.ToInt32(dataGridView1.CurrentRow.Cells[0].Value.ToString());
@@ -79,7 +77,7 @@ namespace MyAssignmentBugTrack.Tester
             // textBox1.Text = dataGridView1.CurrentRow.Cells[11].Value.ToString();
              textEditorControl1.Text = dataGridView1.CurrentRow.Cells[9].Value.ToString();
 
-            
+            count++;
 
         }
 

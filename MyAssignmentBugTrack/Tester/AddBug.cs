@@ -15,7 +15,7 @@ namespace MyAssignmentBugTrack.Tester
 {
     public partial class AddBug : Form
     {
-        string name = "";
+        string name = "";       
         string combotext = "";
         string theDate = "";
         string description = "";
@@ -94,6 +94,25 @@ namespace MyAssignmentBugTrack.Tester
         private void btn_addbug_Click(object sender, EventArgs e)
         {
             combotext = comboBox1.SelectedItem.ToString();
+
+            /*
+            string connectString1 = "Data Source=localhost;Database = bugtrackapp ;User Id= root;Password=;SslMode=none";
+            MySqlConnection myconn1 = new MySqlConnection(connectString1);
+            MySqlCommand command1 = myconn1.CreateCommand();
+            command1.CommandText = "SELECT id FROM tbl_products WHERE pname = '" + combotext + "'";
+            myconn1.Open();
+            command1.ExecuteNonQuery();
+
+            MySqlDataReader reader1 = command1.ExecuteReader();
+
+            while (reader1.Read())
+            {
+                comboboxid =  reader1.GetInt32("id");
+
+            }
+            */
+
+
             description = textBox1.Text;
             startline = textBox2.Text;
             endline = textBox3.Text;
@@ -111,6 +130,8 @@ namespace MyAssignmentBugTrack.Tester
             command.ExecuteNonQuery();
 
             MessageBox.Show("BUG HAS SUCCESSFULLY BEEN ADDED!");
+
+            this.Close();
 
         }
     }
