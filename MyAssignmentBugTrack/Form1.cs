@@ -63,19 +63,20 @@ namespace MyAssignmentBugTrack
             }
             if(comboboxtext == "admin" && roletype == "admin")
             {
-                MessageBox.Show("Logged in!!");
-                HomePage f = new HomePage(name);
-                this.Hide();
-                f.Show();
+               
+               
 
             }
-            else if(comboboxtext == "teser" && roletype == "tester")
+            else if(comboboxtext == "tester" && roletype == "tester")
             {
-
+                MessageBox.Show("Logged in as : " + comboboxtext);
+                TesterHome f = new TesterHome(name);
+                this.Hide();
+                f.Show();
             }
             else if(comboboxtext == "developer" && roletype == "developer")
             {
-
+               
             }
             else
             {
