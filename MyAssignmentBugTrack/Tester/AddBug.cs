@@ -93,6 +93,12 @@ namespace MyAssignmentBugTrack.Tester
 
         private void btn_addbug_Click(object sender, EventArgs e)
         {
+
+            byte[] imageBt = null;
+            FileStream fstream = new FileStream(this.textBox8.Text, FileMode.Open , FileAccess.Read);
+            BinaryReader br = new BinaryReader(fstream);
+            imageBt = br.ReadBytes((int)fstream.Length);
+
             combotext = comboBox1.SelectedItem.ToString();
 
             /*
@@ -112,7 +118,6 @@ namespace MyAssignmentBugTrack.Tester
             }
             */
 
-
             description = textBox1.Text;
             startline = textBox2.Text;
             endline = textBox3.Text;
@@ -125,14 +130,29 @@ namespace MyAssignmentBugTrack.Tester
             string connectString = "Data Source=localhost;Database = bugtrackapp ;User Id= root;Password=;SslMode=none";
             MySqlConnection myconn = new MySqlConnection(connectString);
             MySqlCommand command = myconn.CreateCommand();
-            command.CommandText = "INSERT INTO tbl_addbugs (product_id,reporter,description,date,startline,endline,method,class,code,status) VALUES " + "( ' " + combotext + " ' , '" + this.name + "' , '" + description + "','" + theDate + "','" + startline + "','" + endline  + "','" + method + "','" + theclass + "','" + code  + "','" + status + "'"+  ");";
+            command.CommandText = "INSERT INTO tbl_addbugs (product_id,reporter,description,date,startline,endline,method,class,code,status,snapshot) VALUES " + "('" + combotext + "' ,'" + this.name + "' , '" + description + "','" + theDate + "','" + startline + "','" + endline  + "','" + method + "','" + theclass + "','" + code  + "','" + status + "',@IMG);";
             myconn.Open();
+
+            command.Parameters.Add(new MySqlParameter("@IMG", imageBt));
+
             command.ExecuteNonQuery();
 
             MessageBox.Show("BUG HAS SUCCESSFULLY BEEN ADDED!");
 
             this.Close();
 
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            OpenFileDialog dlg = new OpenFileDialog();
+            dlg.Filter = "JPG Files(*.jpg)|*.jpg|Png Files(*.png)|*.png|All Files(*.*)|*.*";
+            if(dlg.ShowDialog() == DialogResult.OK)
+            {
+                string picPath = dlg.FileName.ToString();
+                textBox8.Text = picPath;
+                pictureBox1.ImageLocation = picPath;
+            }
         }
     }
 }

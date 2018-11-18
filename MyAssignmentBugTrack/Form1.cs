@@ -1,4 +1,5 @@
-﻿using MySql.Data.MySqlClient;
+﻿using MyAssignmentBugTrack.Programmer;
+using MySql.Data.MySqlClient;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -76,7 +77,11 @@ namespace MyAssignmentBugTrack
             }
             else if(comboboxtext == "developer" && roletype == "developer")
             {
-               
+                MessageBox.Show("Logged in as : " + comboboxtext);
+                ProgHomePage f = new ProgHomePage();
+                this.Hide();
+                f.Show();
+                    
             }
             else
             {

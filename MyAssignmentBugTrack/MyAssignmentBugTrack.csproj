@@ -49,11 +49,23 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Developer\AddDevBug.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Developer\AddDevBug.Designer.cs">
+      <DependentUpon>AddDevBug.cs</DependentUpon>
+    </Compile>
     <Compile Include="Form1.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Form1.Designer.cs">
       <DependentUpon>Form1.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Developer\ProgHomePage.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Developer\ProgHomePage.Designer.cs">
+      <DependentUpon>ProgHomePage.cs</DependentUpon>
     </Compile>
     <Compile Include="Tester\AddBug.cs">
       <SubType>Form</SubType>
@@ -66,6 +78,12 @@
     </Compile>
     <Compile Include="Tester\BugReport.Designer.cs">
       <DependentUpon>BugReport.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Tester\SearchBug.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Tester\SearchBug.Designer.cs">
+      <DependentUpon>SearchBug.cs</DependentUpon>
     </Compile>
     <Compile Include="Tester\TesterHomePage.cs">
       <SubType>Form</SubType>
@@ -81,14 +99,29 @@
     <Compile Include="RegesterForm.Designer.cs">
       <DependentUpon>RegesterForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="Tester\UnchangedImage.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Tester\UnchangedImage.Designer.cs">
+      <DependentUpon>UnchangedImage.cs</DependentUpon>
+    </Compile>
+    <EmbeddedResource Include="Developer\AddDevBug.resx">
+      <DependentUpon>AddDevBug.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Form1.resx">
       <DependentUpon>Form1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Developer\ProgHomePage.resx">
+      <DependentUpon>ProgHomePage.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Tester\AddBug.resx">
       <DependentUpon>AddBug.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Tester\BugReport.resx">
       <DependentUpon>BugReport.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Tester\SearchBug.resx">
+      <DependentUpon>SearchBug.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Tester\TesterHomePage.resx">
       <DependentUpon>TesterHomePage.cs</DependentUpon>
@@ -105,6 +138,9 @@
     </Compile>
     <EmbeddedResource Include="RegesterForm.resx">
       <DependentUpon>RegesterForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Tester\UnchangedImage.resx">
+      <DependentUpon>UnchangedImage.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
@@ -127,7 +163,6 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Admin\" />
-    <Folder Include="Programmer\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

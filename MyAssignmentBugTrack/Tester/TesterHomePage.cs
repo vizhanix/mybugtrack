@@ -50,5 +50,12 @@ namespace MyAssignmentBugTrack
             f.MdiParent = this;
             f.Show();
         }
+
+        private void searchBugsToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            SearchBug f = new SearchBug();
+            f.MdiParent = this;
+            f.Show();
+        }
     }
 }

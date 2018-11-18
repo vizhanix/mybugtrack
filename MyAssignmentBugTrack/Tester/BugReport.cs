@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -37,9 +38,7 @@ namespace MyAssignmentBugTrack.Tester
 
         private void BugReport_Load(object sender, EventArgs e)
         {          
-
-           
-            string query = "SELECT * FROM tbl_addbugs";
+            string query = "SELECT id,product_id,reporter,description,date,startline,endline,method,class,code,status FROM tbl_addbugs";
             DataTable table = new DataTable();
             MySqlDataAdapter adapter = new MySqlDataAdapter(query, myconn);
             adapter.Fill(table);
@@ -81,8 +80,31 @@ namespace MyAssignmentBugTrack.Tester
 
         }
 
+        private void button2_Click(object sender, EventArgs e)
+        {
+            OpenFileDialog dlg = new OpenFileDialog();
+            dlg.Filter = "JPG Files(*.jpg)|*.jpg|Png Files(*.png)|*.png|All Files(*.*)|*.*";
+            if (dlg.ShowDialog() == DialogResult.OK)
+            {
+                string picPath = dlg.FileName.ToString();
+                textBox8.Text = picPath;
+                pictureBox1.ImageLocation = picPath;
+            }
+        }
+
+        private void button3_Click(object sender, EventArgs e)
+        {
+            UnchangedImage f = new UnchangedImage(id);
+            f.Show();
+        }
+
         private void button1_Click(object sender, EventArgs e)
         {
+            byte[] imageBt = null;
+            FileStream fstream = new FileStream(this.textBox8.Text, FileMode.Open, FileAccess.Read);
+            BinaryReader br = new BinaryReader(fstream);
+            imageBt = br.ReadBytes((int)fstream.Length);
+
 
             dateTimePicker1.Format = DateTimePickerFormat.Custom;
             dateTimePicker1.CustomFormat = "MM/dd/yyyy hh:mm:ss";
@@ -104,9 +126,12 @@ namespace MyAssignmentBugTrack.Tester
 
 
 
-            command.CommandText = "UPDATE tbl_addbugs SET product_id = '" + combotext + "'" + ", reporter = '" + reporter + "'" + ",description ='"+ description + "'" + ",date ='" + theDate + "' ,startline = '" + startline + "' ,endline = '" + endline + "' ,method = '" + method + "', class = '" + theclass + "' ,code='" + code + "' ,status = '" + status + "' WHERE id = " + id  ;
+            command.CommandText = "UPDATE tbl_addbugs SET product_id = '" + combotext + "'" + ", reporter = '" + reporter + "'" + ",description ='"+ description + "'" + ",date ='" + theDate + "' ,startline = '" + startline + "' ,endline = '" + endline + "' ,method = '" + method + "', class = '" + theclass + "' ,code='" + code + "' ,status = '" + status + "',snapshot = @IMG WHERE id = " + id  ;
 
             myconn.Open();
+
+            command.Parameters.Add(new MySqlParameter("@IMG", imageBt));
+
             command.ExecuteNonQuery();
 
             MessageBox.Show("BUGS HAVE SUCCESSFULLY UPDATED");
