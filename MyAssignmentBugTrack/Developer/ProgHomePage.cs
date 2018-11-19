@@ -13,14 +13,17 @@ namespace MyAssignmentBugTrack.Programmer
 {
     public partial class ProgHomePage : Form
     {
-        public ProgHomePage()
+        string name = "";
+
+        public ProgHomePage(string name)
         {
             InitializeComponent();
+            this.name = name;
         }
 
         private void reportBugToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            AddDevBug f = new AddDevBug();
+            AddDevBug f = new AddDevBug(name);
             f.MdiParent = this;
             f.Show();
         }
@@ -29,6 +32,30 @@ namespace MyAssignmentBugTrack.Programmer
         {
             MessageBox.Show("You Have Successfully Logged Out");
             Application.Restart();
+        }
+
+        private void viewBugReportToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            BugDevReport f = new BugDevReport();
+            f.MdiParent = this;
+            f.Show();
+        }
+
+        private void searchABugToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            SearchBug f = new SearchBug();
+            f.MdiParent = this;
+            f.Show();
+        }
+
+    /*    private void addBugSolutionToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+          
+        }*/
+
+        private void ProgHomePage_Load(object sender, EventArgs e)
+        {
+
         }
     }
 }

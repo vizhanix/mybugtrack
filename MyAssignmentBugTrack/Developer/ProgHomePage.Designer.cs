@@ -31,8 +31,8 @@
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.reportBugToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.viewBugReportToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.addBugSolutionToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.viewSolutionsReportToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.searchABugToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.logoutToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
@@ -42,8 +42,8 @@
             this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.reportBugToolStripMenuItem,
             this.viewBugReportToolStripMenuItem,
-            this.addBugSolutionToolStripMenuItem,
             this.viewSolutionsReportToolStripMenuItem,
+            this.searchABugToolStripMenuItem,
             this.logoutToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
@@ -63,18 +63,20 @@
             this.viewBugReportToolStripMenuItem.Name = "viewBugReportToolStripMenuItem";
             this.viewBugReportToolStripMenuItem.Size = new System.Drawing.Size(111, 20);
             this.viewBugReportToolStripMenuItem.Text = "View Bugs Report";
-            // 
-            // addBugSolutionToolStripMenuItem
-            // 
-            this.addBugSolutionToolStripMenuItem.Name = "addBugSolutionToolStripMenuItem";
-            this.addBugSolutionToolStripMenuItem.Size = new System.Drawing.Size(112, 20);
-            this.addBugSolutionToolStripMenuItem.Text = "Add Bug Solution";
+            this.viewBugReportToolStripMenuItem.Click += new System.EventHandler(this.viewBugReportToolStripMenuItem_Click);
             // 
             // viewSolutionsReportToolStripMenuItem
             // 
             this.viewSolutionsReportToolStripMenuItem.Name = "viewSolutionsReportToolStripMenuItem";
             this.viewSolutionsReportToolStripMenuItem.Size = new System.Drawing.Size(134, 20);
             this.viewSolutionsReportToolStripMenuItem.Text = "View Solutions Report";
+            // 
+            // searchABugToolStripMenuItem
+            // 
+            this.searchABugToolStripMenuItem.Name = "searchABugToolStripMenuItem";
+            this.searchABugToolStripMenuItem.Size = new System.Drawing.Size(87, 20);
+            this.searchABugToolStripMenuItem.Text = "Search a Bug";
+            this.searchABugToolStripMenuItem.Click += new System.EventHandler(this.searchABugToolStripMenuItem_Click);
             // 
             // logoutToolStripMenuItem
             // 
@@ -87,6 +89,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackgroundImage = global::MyAssignmentBugTrack.Properties.Resources.untitled;
             this.ClientSize = new System.Drawing.Size(800, 450);
             this.Controls.Add(this.menuStrip1);
             this.IsMdiContainer = true;
@@ -94,6 +97,7 @@
             this.Name = "ProgHomePage";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "ProgHomePage";
+            this.Load += new System.EventHandler(this.ProgHomePage_Load);
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();
             this.ResumeLayout(false);
@@ -106,8 +110,8 @@
         private System.Windows.Forms.MenuStrip menuStrip1;
         private System.Windows.Forms.ToolStripMenuItem reportBugToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem viewBugReportToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem addBugSolutionToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem viewSolutionsReportToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem logoutToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem searchABugToolStripMenuItem;
     }
 }

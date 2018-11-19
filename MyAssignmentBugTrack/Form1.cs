@@ -78,7 +78,7 @@ namespace MyAssignmentBugTrack
             else if(comboboxtext == "developer" && roletype == "developer")
             {
                 MessageBox.Show("Logged in as : " + comboboxtext);
-                ProgHomePage f = new ProgHomePage();
+                ProgHomePage f = new ProgHomePage(name);
                 this.Hide();
                 f.Show();
                     

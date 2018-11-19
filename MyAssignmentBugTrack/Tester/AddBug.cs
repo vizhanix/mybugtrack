@@ -73,11 +73,6 @@ namespace MyAssignmentBugTrack.Tester
 
         }
 
-        public string getDate()
-        {
-            return theDate;
-        }
-
         private void textEditorControl1_Load(object sender, EventArgs e)
         {
             string dric = Application.StartupPath;
