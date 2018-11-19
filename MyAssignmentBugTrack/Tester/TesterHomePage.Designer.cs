@@ -31,9 +31,9 @@
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.reportABugToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.viewProjectsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.searchBugsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.viewSolutionsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.logoutToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.searchBugsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -67,12 +67,21 @@
             this.viewProjectsToolStripMenuItem.Text = "View Bugs Report";
             this.viewProjectsToolStripMenuItem.Click += new System.EventHandler(this.viewProjectsToolStripMenuItem_Click);
             // 
+            // searchBugsToolStripMenuItem
+            // 
+            this.searchBugsToolStripMenuItem.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.searchBugsToolStripMenuItem.Name = "searchBugsToolStripMenuItem";
+            this.searchBugsToolStripMenuItem.Size = new System.Drawing.Size(91, 21);
+            this.searchBugsToolStripMenuItem.Text = "Search Bugs";
+            this.searchBugsToolStripMenuItem.Click += new System.EventHandler(this.searchBugsToolStripMenuItem_Click);
+            // 
             // viewSolutionsToolStripMenuItem
             // 
             this.viewSolutionsToolStripMenuItem.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.viewSolutionsToolStripMenuItem.Name = "viewSolutionsToolStripMenuItem";
             this.viewSolutionsToolStripMenuItem.Size = new System.Drawing.Size(148, 21);
             this.viewSolutionsToolStripMenuItem.Text = "View Solutions Report";
+            this.viewSolutionsToolStripMenuItem.Click += new System.EventHandler(this.viewSolutionsToolStripMenuItem_Click);
             // 
             // logoutToolStripMenuItem
             // 
@@ -81,14 +90,6 @@
             this.logoutToolStripMenuItem.Size = new System.Drawing.Size(61, 21);
             this.logoutToolStripMenuItem.Text = "Logout";
             this.logoutToolStripMenuItem.Click += new System.EventHandler(this.logoutToolStripMenuItem_Click);
-            // 
-            // searchBugsToolStripMenuItem
-            // 
-            this.searchBugsToolStripMenuItem.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.searchBugsToolStripMenuItem.Name = "searchBugsToolStripMenuItem";
-            this.searchBugsToolStripMenuItem.Size = new System.Drawing.Size(91, 21);
-            this.searchBugsToolStripMenuItem.Text = "Search Bugs";
-            this.searchBugsToolStripMenuItem.Click += new System.EventHandler(this.searchBugsToolStripMenuItem_Click);
             // 
             // TesterHome
             // 

@@ -73,11 +73,23 @@
     <Compile Include="Developer\SearchBug.Designer.cs">
       <DependentUpon>SearchBug.cs</DependentUpon>
     </Compile>
+    <Compile Include="Developer\SolutionsReport.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Developer\SolutionsReport.Designer.cs">
+      <DependentUpon>SolutionsReport.cs</DependentUpon>
+    </Compile>
     <Compile Include="Developer\UnchangedImage.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Developer\UnchangedImage.Designer.cs">
       <DependentUpon>UnchangedImage.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Developer\UnchangedImageSoln.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Developer\UnchangedImageSoln.Designer.cs">
+      <DependentUpon>UnchangedImageSoln.cs</DependentUpon>
     </Compile>
     <Compile Include="Form1.cs">
       <SubType>Form</SubType>
@@ -109,6 +121,12 @@
     <Compile Include="Tester\SearchBug.Designer.cs">
       <DependentUpon>SearchBug.cs</DependentUpon>
     </Compile>
+    <Compile Include="Tester\SolutionImage.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Tester\SolutionImage.Designer.cs">
+      <DependentUpon>SolutionImage.cs</DependentUpon>
+    </Compile>
     <Compile Include="Tester\TesterHomePage.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -129,6 +147,12 @@
     <Compile Include="Tester\UnchangedImage.Designer.cs">
       <DependentUpon>UnchangedImage.cs</DependentUpon>
     </Compile>
+    <Compile Include="Tester\ViewSolutions.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Tester\ViewSolutions.Designer.cs">
+      <DependentUpon>ViewSolutions.cs</DependentUpon>
+    </Compile>
     <EmbeddedResource Include="Developer\AddDevBug.resx">
       <DependentUpon>AddDevBug.cs</DependentUpon>
     </EmbeddedResource>
@@ -141,8 +165,14 @@
     <EmbeddedResource Include="Developer\SearchBug.resx">
       <DependentUpon>SearchBug.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Developer\SolutionsReport.resx">
+      <DependentUpon>SolutionsReport.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Developer\UnchangedImage.resx">
       <DependentUpon>UnchangedImage.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Developer\UnchangedImageSoln.resx">
+      <DependentUpon>UnchangedImageSoln.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Form1.resx">
       <DependentUpon>Form1.cs</DependentUpon>
@@ -158,6 +188,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Tester\SearchBug.resx">
       <DependentUpon>SearchBug.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Tester\SolutionImage.resx">
+      <DependentUpon>SolutionImage.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Tester\TesterHomePage.resx">
       <DependentUpon>TesterHomePage.cs</DependentUpon>
@@ -177,6 +210,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Tester\UnchangedImage.resx">
       <DependentUpon>UnchangedImage.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Tester\ViewSolutions.resx">
+      <DependentUpon>ViewSolutions.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>

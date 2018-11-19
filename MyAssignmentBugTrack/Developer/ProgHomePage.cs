@@ -57,5 +57,12 @@ namespace MyAssignmentBugTrack.Programmer
         {
 
         }
+
+        private void viewSolutionsReportToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            SolutionsReport f = new SolutionsReport();
+            f.MdiParent = this;
+            f.Show();
+        }
     }
 }

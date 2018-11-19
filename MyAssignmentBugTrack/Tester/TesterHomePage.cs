@@ -57,5 +57,12 @@ namespace MyAssignmentBugTrack
             f.MdiParent = this;
             f.Show();
         }
+
+        private void viewSolutionsToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            ViewSolutions f = new ViewSolutions();
+            f.MdiParent = this;
+            f.Show();
+        }
     }
 }

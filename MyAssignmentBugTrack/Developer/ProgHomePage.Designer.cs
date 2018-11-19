@@ -70,6 +70,7 @@
             this.viewSolutionsReportToolStripMenuItem.Name = "viewSolutionsReportToolStripMenuItem";
             this.viewSolutionsReportToolStripMenuItem.Size = new System.Drawing.Size(134, 20);
             this.viewSolutionsReportToolStripMenuItem.Text = "View Solutions Report";
+            this.viewSolutionsReportToolStripMenuItem.Click += new System.EventHandler(this.viewSolutionsReportToolStripMenuItem_Click);
             // 
             // searchABugToolStripMenuItem
             // 

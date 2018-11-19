@@ -25,8 +25,10 @@ namespace MyAssignmentBugTrack.Tester
         string theclass = "";
         string code = "";
         string status = "";
+        byte[] imageBt = null;
 
-       
+
+
 
 
         public BugReport()
@@ -100,10 +102,16 @@ namespace MyAssignmentBugTrack.Tester
 
         private void button1_Click(object sender, EventArgs e)
         {
-            byte[] imageBt = null;
-            FileStream fstream = new FileStream(this.textBox8.Text, FileMode.Open, FileAccess.Read);
-            BinaryReader br = new BinaryReader(fstream);
-            imageBt = br.ReadBytes((int)fstream.Length);
+            try
+            {
+                imageBt = null;
+                FileStream fstream = new FileStream(this.textBox8.Text, FileMode.Open, FileAccess.Read);
+                BinaryReader br = new BinaryReader(fstream);
+                imageBt = br.ReadBytes((int)fstream.Length);
+            }catch(Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
 
 
             dateTimePicker1.Format = DateTimePickerFormat.Custom;
