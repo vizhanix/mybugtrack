@@ -90,6 +90,7 @@
             this.versionControlSystemToolStripMenuItem.Name = "versionControlSystemToolStripMenuItem";
             this.versionControlSystemToolStripMenuItem.Size = new System.Drawing.Size(141, 20);
             this.versionControlSystemToolStripMenuItem.Text = "Version Control System";
+            this.versionControlSystemToolStripMenuItem.Click += new System.EventHandler(this.versionControlSystemToolStripMenuItem_Click);
             // 
             // logoutToolStripMenuItem
             // 

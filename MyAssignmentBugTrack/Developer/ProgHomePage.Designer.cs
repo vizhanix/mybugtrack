@@ -34,6 +34,7 @@
             this.viewSolutionsReportToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.searchABugToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.logoutToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.versionControlSystemToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -44,6 +45,7 @@
             this.viewBugReportToolStripMenuItem,
             this.viewSolutionsReportToolStripMenuItem,
             this.searchABugToolStripMenuItem,
+            this.versionControlSystemToolStripMenuItem,
             this.logoutToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
@@ -86,6 +88,13 @@
             this.logoutToolStripMenuItem.Text = "Logout";
             this.logoutToolStripMenuItem.Click += new System.EventHandler(this.logoutToolStripMenuItem_Click);
             // 
+            // versionControlSystemToolStripMenuItem
+            // 
+            this.versionControlSystemToolStripMenuItem.Name = "versionControlSystemToolStripMenuItem";
+            this.versionControlSystemToolStripMenuItem.Size = new System.Drawing.Size(141, 20);
+            this.versionControlSystemToolStripMenuItem.Text = "Version Control System";
+            this.versionControlSystemToolStripMenuItem.Click += new System.EventHandler(this.versionControlSystemToolStripMenuItem_Click);
+            // 
             // ProgHomePage
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -114,5 +123,6 @@
         private System.Windows.Forms.ToolStripMenuItem viewSolutionsReportToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem logoutToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem searchABugToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem versionControlSystemToolStripMenuItem;
     }
 }

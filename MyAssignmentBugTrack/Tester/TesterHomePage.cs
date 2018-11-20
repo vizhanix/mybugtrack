@@ -1,4 +1,7 @@
 ﻿using MyAssignmentBugTrack.Tester;
+using OpenQA.Selenium;
+using OpenQA.Selenium.Chrome;
+using OpenQA.Selenium.Interactions;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -63,6 +66,35 @@ namespace MyAssignmentBugTrack
             ViewSolutions f = new ViewSolutions();
             f.MdiParent = this;
             f.Show();
+        }
+
+        private void versionControlSystemToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            var driver = new ChromeDriver();
+            driver.Navigate().GoToUrl("https://github.com/login");
+
+            var title_field1 = driver.FindElementByName("login");
+            var title_field2 = driver.FindElementByName("password");
+
+
+            if (title_field1 != null || title_field2 != null)
+            {
+                //Now perform actions on this element
+
+                Actions actions = new Actions(driver);
+                actions.MoveToElement(title_field1);
+                actions.Click();
+                actions.SendKeys("mixontandukar@gmail.com");
+
+                actions.MoveToElement(title_field2);
+                actions.Click();
+                actions.SendKeys("Abcd1234@@,.");
+
+                actions.Build().Perform();
+
+                IWebElement element = driver.FindElementByName("commit");
+                element.Click();
+            }
         }
     }
 }
