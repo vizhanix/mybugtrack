@@ -1,4 +1,5 @@
-﻿using MyAssignmentBugTrack.Programmer;
+﻿using MyAssignmentBugTrack.Admin;
+using MyAssignmentBugTrack.Programmer;
 using MySql.Data.MySqlClient;
 using System;
 using System.Collections.Generic;
@@ -64,8 +65,11 @@ namespace MyAssignmentBugTrack
             }
             if(comboboxtext == "admin" && roletype == "admin")
             {
-               
-               
+                MessageBox.Show("Logged in as : " + comboboxtext);
+                AdminHome f = new AdminHome(name);
+                this.Hide();
+                f.Show();
+
 
             }
             else if(comboboxtext == "tester" && roletype == "tester")

@@ -49,6 +49,60 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Admin\AddAdminBug.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Admin\AddAdminBug.Designer.cs">
+      <DependentUpon>AddAdminBug.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Admin\AddEditProducts.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Admin\AddEditProducts.Designer.cs">
+      <DependentUpon>AddEditProducts.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Admin\AdminHome.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Admin\AdminHome.Designer.cs">
+      <DependentUpon>AdminHome.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Admin\AdminSolutionsReport.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Admin\AdminSolutionsReport.Designer.cs">
+      <DependentUpon>AdminSolutionsReport.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Admin\BugAdminReport.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Admin\BugAdminReport.Designer.cs">
+      <DependentUpon>BugAdminReport.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Admin\BugAdminSolution.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Admin\BugAdminSolution.Designer.cs">
+      <DependentUpon>BugAdminSolution.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Admin\SearchBug.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Admin\SearchBug.Designer.cs">
+      <DependentUpon>SearchBug.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Admin\UnchangedImage.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Admin\UnchangedImage.Designer.cs">
+      <DependentUpon>UnchangedImage.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Admin\UnchangedImageSoln.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Admin\UnchangedImageSoln.Designer.cs">
+      <DependentUpon>UnchangedImageSoln.cs</DependentUpon>
+    </Compile>
     <Compile Include="Developer\AddDevBug.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -153,6 +207,33 @@
     <Compile Include="Tester\ViewSolutions.Designer.cs">
       <DependentUpon>ViewSolutions.cs</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="Admin\AddAdminBug.resx">
+      <DependentUpon>AddAdminBug.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Admin\AddEditProducts.resx">
+      <DependentUpon>AddEditProducts.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Admin\AdminHome.resx">
+      <DependentUpon>AdminHome.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Admin\AdminSolutionsReport.resx">
+      <DependentUpon>AdminSolutionsReport.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Admin\BugAdminReport.resx">
+      <DependentUpon>BugAdminReport.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Admin\BugAdminSolution.resx">
+      <DependentUpon>BugAdminSolution.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Admin\SearchBug.resx">
+      <DependentUpon>SearchBug.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Admin\UnchangedImage.resx">
+      <DependentUpon>UnchangedImage.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Admin\UnchangedImageSoln.resx">
+      <DependentUpon>UnchangedImageSoln.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Developer\AddDevBug.resx">
       <DependentUpon>AddDevBug.cs</DependentUpon>
     </EmbeddedResource>
@@ -233,8 +314,6 @@
   <ItemGroup>
     <None Include="Resources\UserLogin.png" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Admin\" />
-  </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
