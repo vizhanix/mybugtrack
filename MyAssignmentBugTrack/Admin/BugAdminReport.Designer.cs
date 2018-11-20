@@ -66,9 +66,9 @@
             // 
             // panel1
             // 
+            this.panel1.Controls.Add(this.button5);
             this.panel1.Controls.Add(this.button4);
             this.panel1.Controls.Add(this.pictureBox1);
-            this.panel1.Controls.Add(this.button5);
             this.panel1.Controls.Add(this.button3);
             this.panel1.Controls.Add(this.button2);
             this.panel1.Controls.Add(this.button1);
@@ -369,13 +369,13 @@
             // button5
             // 
             this.button5.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button5.Location = new System.Drawing.Point(284, 845);
+            this.button5.Location = new System.Drawing.Point(293, 845);
             this.button5.Name = "button5";
             this.button5.Size = new System.Drawing.Size(123, 53);
-            this.button5.TabIndex = 38;
+            this.button5.TabIndex = 41;
             this.button5.Text = "Delete";
             this.button5.UseVisualStyleBackColor = true;
-            this.button5.Click += new System.EventHandler(this.button3_Click);
+            this.button5.Click += new System.EventHandler(this.button5_Click);
             // 
             // BugAdminReport
             // 

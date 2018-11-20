@@ -168,5 +168,22 @@ namespace MyAssignmentBugTrack.Admin
 
             this.Close();
         }
+
+        private void button4_Click(object sender, EventArgs e)
+        {
+            string connectString = "Data Source=localhost;Database = bugtrackapp ;User Id= root;Password=;SslMode=none";
+            MySqlConnection myconn = new MySqlConnection(connectString);
+            MySqlCommand command = myconn.CreateCommand();
+
+            command.CommandText = "DELETE FROM tbl_solutions WHERE id = " + id;
+
+            myconn.Open();
+
+            command.ExecuteNonQuery();
+
+            MessageBox.Show("SOLUTION SUCCESSFULLY DELETED");
+
+            this.Close();
+        }
     }
 }

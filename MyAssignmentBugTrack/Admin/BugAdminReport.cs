@@ -105,6 +105,23 @@ namespace MyAssignmentBugTrack.Admin
             f.Show();
         }
 
+        private void button5_Click(object sender, EventArgs e)
+        {
+            string connectString = "Data Source=localhost;Database = bugtrackapp ;User Id= root;Password=;SslMode=none";
+            MySqlConnection myconn = new MySqlConnection(connectString);
+            MySqlCommand command = myconn.CreateCommand();
+
+            command.CommandText = "DELETE FROM tbl_addbugs WHERE id = " + id;
+
+            myconn.Open();
+
+            command.ExecuteNonQuery();
+
+            MessageBox.Show("SOLUTION SUCCESSFULLY DELETED");
+
+            this.Close();
+        }
+
         private void dataGridView1_MouseClick(object sender, MouseEventArgs e)
         {
             string connectString = "Data Source=localhost;Database = bugtrackapp ;User Id= root;Password=;SslMode=none";
