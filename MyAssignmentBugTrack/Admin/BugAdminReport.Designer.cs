@@ -29,6 +29,7 @@
         private void InitializeComponent()
         {
             this.panel1 = new System.Windows.Forms.Panel();
+            this.button5 = new System.Windows.Forms.Button();
             this.button4 = new System.Windows.Forms.Button();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.button3 = new System.Windows.Forms.Button();
@@ -58,7 +59,6 @@
             this.label2 = new System.Windows.Forms.Label();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.label1 = new System.Windows.Forms.Label();
-            this.button5 = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
@@ -100,6 +100,17 @@
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(994, 1021);
             this.panel1.TabIndex = 0;
+            // 
+            // button5
+            // 
+            this.button5.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button5.Location = new System.Drawing.Point(293, 845);
+            this.button5.Name = "button5";
+            this.button5.Size = new System.Drawing.Size(123, 53);
+            this.button5.TabIndex = 41;
+            this.button5.Text = "Delete";
+            this.button5.UseVisualStyleBackColor = true;
+            this.button5.Click += new System.EventHandler(this.button5_Click);
             // 
             // button4
             // 
@@ -160,6 +171,7 @@
             this.textEditorControl1.Name = "textEditorControl1";
             this.textEditorControl1.Size = new System.Drawing.Size(351, 357);
             this.textEditorControl1.TabIndex = 35;
+            this.textEditorControl1.Load += new System.EventHandler(this.textEditorControl1_Load);
             // 
             // textBox6
             // 
@@ -366,23 +378,13 @@
             this.label1.TabIndex = 12;
             this.label1.Text = "Bug Reports";
             // 
-            // button5
-            // 
-            this.button5.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button5.Location = new System.Drawing.Point(293, 845);
-            this.button5.Name = "button5";
-            this.button5.Size = new System.Drawing.Size(123, 53);
-            this.button5.TabIndex = 41;
-            this.button5.Text = "Delete";
-            this.button5.UseVisualStyleBackColor = true;
-            this.button5.Click += new System.EventHandler(this.button5_Click);
-            // 
             // BugAdminReport
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.AutoScroll = true;
             this.BackgroundImage = global::MyAssignmentBugTrack.Properties.Resources.untitled;
-            this.ClientSize = new System.Drawing.Size(1131, 1061);
+            this.ClientSize = new System.Drawing.Size(1131, 749);
             this.Controls.Add(this.panel1);
             this.Name = "BugAdminReport";
             this.Text = "BugAdminReport";

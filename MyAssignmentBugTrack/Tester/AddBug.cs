@@ -1,4 +1,22 @@
-﻿using System;
+﻿
+
+
+/************************************************************************************
+ ************************************************************************************
+ *										  										  *
+ *		              				                                              *
+ *				 BUG TRACKING APPLICATION 	 Author: Mixon Tandukar 		      *
+ *				    						         						      * 				
+ *						      Date: 2018/23/11  								  *		
+ *																				  *
+ *																				  *
+ *		This form is the add bug page of the application which is named	    	  *
+ *		AddBug for the tester role to add the bugs								  *
+ *																				  *	
+ *																				  *
+ ************************************************************************************/
+
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -11,10 +29,12 @@ using MySql.Data.MySqlClient;
 using ICSharpCode.TextEditor.Document;
 using System.IO;
 
+//namespace of the project
 namespace MyAssignmentBugTrack.Tester
 {
     public partial class AddBug : Form
     {
+        //variables declration field
         string name = "";       
         string combotext = "";
         string theDate = "";
@@ -26,16 +46,18 @@ namespace MyAssignmentBugTrack.Tester
         string code = "";
         string status = "";
 
+        //constructor that takes string as its parameter
         public AddBug(string name)
         {
             InitializeComponent();
+            //action to store  the passed name to this class variabe declared above
             this.name = name;
         }
 
+        //default constructor
         public AddBug()
         {
-           
-        
+            InitializeComponent();
         }
 
         private void label1_Click(object sender, EventArgs e)
@@ -47,8 +69,11 @@ namespace MyAssignmentBugTrack.Tester
            
         }
 
+        //method of the form load
         private void AddBug_Load(object sender, EventArgs e)
         {
+            //block of code to connect to the database and fetch or alter values
+            //whenever necessary
             string connectString = "Data Source=localhost;Database = bugtrackapp ;User Id= root;Password=;SslMode=none";
             MySqlConnection myconn = new MySqlConnection(connectString);
             MySqlCommand command = myconn.CreateCommand();
@@ -60,19 +85,24 @@ namespace MyAssignmentBugTrack.Tester
 
             while (reader.Read())
             {
+                //fetch the data from the database and show names of the products in combobox
                 comboBox1.Items.Add(reader.GetString("pname"));
                 
             }
 
+            //puts text of the textbox5 to the value ste in name variable
             textBox5.Text = name;
 
+            //date time picker format declaration
             dateTimePicker1.Format = DateTimePickerFormat.Custom;
             dateTimePicker1.CustomFormat = "MM/dd/yyyy hh:mm:ss";
 
+            //takes the value selected in the datetimepicker and stores to theDate variable
             theDate = dateTimePicker1.Value.ToString("yyyy-MM-dd");
 
         }
 
+        //this is the block of code to have syntax highlighting on the textEditorField
         private void textEditorControl1_Load(object sender, EventArgs e)
         {
             string dric = Application.StartupPath;
@@ -86,33 +116,18 @@ namespace MyAssignmentBugTrack.Tester
            
         }
 
+        //method written to do the tasks when the add bug button is clicked
         private void btn_addbug_Click(object sender, EventArgs e)
         {
 
+            //block of code to read the image
             byte[] imageBt = null;
             FileStream fstream = new FileStream(this.textBox8.Text, FileMode.Open , FileAccess.Read);
             BinaryReader br = new BinaryReader(fstream);
             imageBt = br.ReadBytes((int)fstream.Length);
 
+            //use of variables to get the input values and store in variables
             combotext = comboBox1.SelectedItem.ToString();
-
-            /*
-            string connectString1 = "Data Source=localhost;Database = bugtrackapp ;User Id= root;Password=;SslMode=none";
-            MySqlConnection myconn1 = new MySqlConnection(connectString1);
-            MySqlCommand command1 = myconn1.CreateCommand();
-            command1.CommandText = "SELECT id FROM tbl_products WHERE pname = '" + combotext + "'";
-            myconn1.Open();
-            command1.ExecuteNonQuery();
-
-            MySqlDataReader reader1 = command1.ExecuteReader();
-
-            while (reader1.Read())
-            {
-                comboboxid =  reader1.GetInt32("id");
-
-            }
-            */
-
             description = textBox1.Text;
             startline = textBox2.Text;
             endline = textBox3.Text;
@@ -121,7 +136,7 @@ namespace MyAssignmentBugTrack.Tester
             code = textEditorControl1.Text;
             status = textBox7.Text;
 
-
+            //block of code to connect to the database and fetch or alter the values associated
             string connectString = "Data Source=localhost;Database = bugtrackapp ;User Id= root;Password=;SslMode=none";
             MySqlConnection myconn = new MySqlConnection(connectString);
             MySqlCommand command = myconn.CreateCommand();
@@ -138,6 +153,7 @@ namespace MyAssignmentBugTrack.Tester
 
         }
 
+        //method used when the button clicked, show dialogbox to choose image file to oad to the database
         private void button1_Click(object sender, EventArgs e)
         {
             OpenFileDialog dlg = new OpenFileDialog();

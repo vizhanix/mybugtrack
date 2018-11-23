@@ -1,4 +1,23 @@
-﻿using MySql.Data.MySqlClient;
+﻿
+
+
+/************************************************************************************
+ ************************************************************************************
+ *										  										  *
+ *		              				                                              *
+ *				 BUG TRACKING APPLICATION 	 Author: Mixon Tandukar 		      *
+ *				    						         						      * 				
+ *						      Date: 2018/23/11  								  *		
+ *																				  *
+ *																				  *
+ *		This form is the add bug page of the application which is named	    	  *
+ *		AddBug for the tester role to add the bugs								  *
+ *																				  *	
+ *																				  *
+ ************************************************************************************/
+
+using ICSharpCode.TextEditor.Document;
+using MySql.Data.MySqlClient;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -10,10 +29,12 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
+//name of the namespace of the project
 namespace MyAssignmentBugTrack.Tester
 {
     public partial class BugReport : Form
     {
+        //variables declaration field
         int id,count = 0;
         string reporter = "";
         string combotext = "";
@@ -27,27 +48,30 @@ namespace MyAssignmentBugTrack.Tester
         string status = "";
         byte[] imageBt = null;
 
-
-
-
-
+        //default constructor 
         public BugReport()
         {
             InitializeComponent();
         }
 
+        //connection string 
         MySqlConnection myconn = new MySqlConnection("Data Source=localhost;Database = bugtrackapp ;User Id= root;Password=;SslMode=none");
 
+        //form load method
         private void BugReport_Load(object sender, EventArgs e)
-        {          
+        {    
+            //block of code to connect to the database and fetch or alter the values saved in the database
             string query = "SELECT id,product_id,reporter,description,date,startline,endline,method,class,code,status FROM tbl_addbugs";
             DataTable table = new DataTable();
             MySqlDataAdapter adapter = new MySqlDataAdapter(query, myconn);
+
+            //block of code to fill the gatagridview with the associated data from the database
             adapter.Fill(table);
             dataGridView1.DataSource = table;
 
         }
 
+        //method to take action when the rows in the datagridview is clicked
         private void dataGridView1_MouseClick(object sender, MouseEventArgs e)
         {
             string connectString = "Data Source=localhost;Database = bugtrackapp ;User Id= root;Password=;SslMode=none";
@@ -82,6 +106,7 @@ namespace MyAssignmentBugTrack.Tester
 
         }
 
+        //method to show the dialogbox to give option to choose the image file to upload in the database
         private void button2_Click(object sender, EventArgs e)
         {
             OpenFileDialog dlg = new OpenFileDialog();
@@ -94,12 +119,27 @@ namespace MyAssignmentBugTrack.Tester
             }
         }
 
+        //method to show the unchanged image for a bug created
         private void button3_Click(object sender, EventArgs e)
         {
             UnchangedImage f = new UnchangedImage(id);
             f.Show();
         }
 
+        //this is the method where syntax highlighting takes place
+        private void textEditorControl1_Load(object sender, EventArgs e)
+        {
+            string dric = Application.StartupPath;
+            FileSyntaxModeProvider fsmp;
+            if (Directory.Exists(dric))
+            {
+                fsmp = new FileSyntaxModeProvider(dric);
+                HighlightingManager.Manager.AddSyntaxModeFileProvider(fsmp);
+                textEditorControl1.SetHighlighting("C#");
+            }
+        }
+
+        //method for the button which when pressed, updated the database associated with the values
         private void button1_Click(object sender, EventArgs e)
         {
             try
@@ -113,10 +153,8 @@ namespace MyAssignmentBugTrack.Tester
                 MessageBox.Show(ex.Message);
             }
 
-
             dateTimePicker1.Format = DateTimePickerFormat.Custom;
             dateTimePicker1.CustomFormat = "MM/dd/yyyy hh:mm:ss";
-
             combotext = comboBox1.SelectedItem.ToString(); //done
             reporter = textBox1.Text; //done
             description = textBox2.Text; //done
@@ -131,8 +169,6 @@ namespace MyAssignmentBugTrack.Tester
             string connectString = "Data Source=localhost;Database = bugtrackapp ;User Id= root;Password=;SslMode=none";
             MySqlConnection myconn = new MySqlConnection(connectString);
             MySqlCommand command = myconn.CreateCommand();
-
-
 
             command.CommandText = "UPDATE tbl_addbugs SET product_id = '" + combotext + "'" + ", reporter = '" + reporter + "'" + ",description ='"+ description + "'" + ",date ='" + theDate + "' ,startline = '" + startline + "' ,endline = '" + endline + "' ,method = '" + method + "', class = '" + theclass + "' ,code='" + code + "' ,status = '" + status + "',snapshot = @IMG WHERE id = " + id  ;
 

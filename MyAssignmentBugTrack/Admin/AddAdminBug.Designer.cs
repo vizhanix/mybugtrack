@@ -329,8 +329,9 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.AutoScroll = true;
             this.BackgroundImage = global::MyAssignmentBugTrack.Properties.Resources.untitled;
-            this.ClientSize = new System.Drawing.Size(1305, 971);
+            this.ClientSize = new System.Drawing.Size(1305, 749);
             this.Controls.Add(this.panel1);
             this.Name = "AddAdminBug";
             this.Text = "AddAdminBug";

@@ -29,6 +29,7 @@
         private void InitializeComponent()
         {
             this.panel1 = new System.Windows.Forms.Panel();
+            this.button4 = new System.Windows.Forms.Button();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.button3 = new System.Windows.Forms.Button();
             this.button2 = new System.Windows.Forms.Button();
@@ -57,7 +58,6 @@
             this.label2 = new System.Windows.Forms.Label();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.label1 = new System.Windows.Forms.Label();
-            this.button4 = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
@@ -98,6 +98,17 @@
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(994, 1021);
             this.panel1.TabIndex = 0;
+            // 
+            // button4
+            // 
+            this.button4.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button4.Location = new System.Drawing.Point(152, 940);
+            this.button4.Name = "button4";
+            this.button4.Size = new System.Drawing.Size(206, 40);
+            this.button4.TabIndex = 11;
+            this.button4.Text = "Add Solution";
+            this.button4.UseVisualStyleBackColor = true;
+            this.button4.Click += new System.EventHandler(this.button4_Click);
             // 
             // pictureBox1
             // 
@@ -147,6 +158,7 @@
             this.textEditorControl1.Name = "textEditorControl1";
             this.textEditorControl1.Size = new System.Drawing.Size(351, 357);
             this.textEditorControl1.TabIndex = 8;
+            this.textEditorControl1.Load += new System.EventHandler(this.textEditorControl1_Load);
             // 
             // textBox6
             // 
@@ -357,23 +369,13 @@
             this.label1.TabIndex = 0;
             this.label1.Text = "Bug Reports";
             // 
-            // button4
-            // 
-            this.button4.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button4.Location = new System.Drawing.Point(152, 940);
-            this.button4.Name = "button4";
-            this.button4.Size = new System.Drawing.Size(206, 40);
-            this.button4.TabIndex = 11;
-            this.button4.Text = "Add Solution";
-            this.button4.UseVisualStyleBackColor = true;
-            this.button4.Click += new System.EventHandler(this.button4_Click);
-            // 
             // BugDevReport
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.AutoScroll = true;
             this.BackgroundImage = global::MyAssignmentBugTrack.Properties.Resources.untitled;
-            this.ClientSize = new System.Drawing.Size(1131, 1061);
+            this.ClientSize = new System.Drawing.Size(1131, 749);
             this.Controls.Add(this.panel1);
             this.Name = "BugDevReport";
             this.Text = "BugDevReport";

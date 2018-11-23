@@ -10,12 +10,15 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
+//namespace of the project
 namespace MyAssignmentBugTrack.Admin
 {
     public partial class UnchangedImageSoln : Form
     {
+        //variable declaration
         int id = 0;
 
+        //constructor with a parameter
         public UnchangedImageSoln(int id)
         {
             InitializeComponent();
@@ -24,11 +27,12 @@ namespace MyAssignmentBugTrack.Admin
 
         private void UnchangedImageSoln_Load(object sender, EventArgs e)
         {
+            //connection string that connects to the database
             string connectString = "Data Source=localhost;Database = bugtrackapp ;User Id= root;Password=;SslMode=none";
             MySqlConnection myconn = new MySqlConnection(connectString);
             MySqlCommand command = myconn.CreateCommand();
             command.CommandText = "SELECT * FROM tbl_solutions WHERE id ='" + id + "'";
-            myconn.Open();
+            myconn.Open(); //connection open
             command.ExecuteNonQuery();
 
             MySqlDataReader reader = command.ExecuteReader();
@@ -39,6 +43,7 @@ namespace MyAssignmentBugTrack.Admin
             {
                 try
                 {
+                    //image read code
                     byte[] imgg = (byte[])(reader["snapshot"]);
                     if (imgg == null)
                         pictureBox1.Image = null;
@@ -50,7 +55,7 @@ namespace MyAssignmentBugTrack.Admin
                 }
                 catch (Exception ex)
                 {
-                    MessageBox.Show(ex.Message);
+                    MessageBox.Show(ex.Message); //exception message
                 }
             }
         }

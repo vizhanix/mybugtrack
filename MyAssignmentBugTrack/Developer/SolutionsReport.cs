@@ -1,4 +1,23 @@
-﻿using MySql.Data.MySqlClient;
+﻿
+
+
+/************************************************************************************
+ ************************************************************************************
+ *										  										  *
+ *		              				                                              *
+ *				 BUG TRACKING APPLICATION 	 Author: Mixon Tandukar 		      *
+ *				    						         						      * 				
+ *						      Date: 2018/23/11  								  *		
+ *																				  *
+ *																				  *
+ *		This form is the programmer solutions report page of the applications     *
+ *		 which is named SolutionsReport for the developer role                    *
+ *																		          *	
+ *																				  *
+ ************************************************************************************/
+
+using ICSharpCode.TextEditor.Document;
+using MySql.Data.MySqlClient;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -10,10 +29,12 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
+//amespace of the project
 namespace MyAssignmentBugTrack.Developer
 {
     public partial class SolutionsReport : Form
     {
+        //variable declaration field
         int id;
         string bugid;
         string theDate;
@@ -21,13 +42,16 @@ namespace MyAssignmentBugTrack.Developer
         string code = "";
         byte[] imageBt = null;
 
+        //default constructor
         public SolutionsReport()
         {
             InitializeComponent();
         }
 
+        //database string to connect to the database
         MySqlConnection myconn = new MySqlConnection("Data Source=localhost;Database = bugtrackapp ;User Id= root;Password=;SslMode=none");
 
+        //method which runs to fetch the data from the database to fill to datagridview
         private void SolutionsReport_Load(object sender, EventArgs e)
         {
             string query = "SELECT id,bug_id,description,date,code FROM tbl_solutions";
@@ -37,6 +61,7 @@ namespace MyAssignmentBugTrack.Developer
             dataGridView1.DataSource = table;
         }
 
+        //mouseclick event to show the data from that respective row o the fields in order to manipulate or delete
         private void dataGridView1_MouseClick(object sender, MouseEventArgs e)
         {
             id = Convert.ToInt32(dataGridView1.CurrentRow.Cells[0].Value.ToString());           
@@ -52,6 +77,7 @@ namespace MyAssignmentBugTrack.Developer
             f.Show();
         }
 
+        //method when button1 clicked, pops a dialog box to choose an image to upload in the database
         private void button1_Click(object sender, EventArgs e)
         {
             OpenFileDialog dlg = new OpenFileDialog();
@@ -64,6 +90,7 @@ namespace MyAssignmentBugTrack.Developer
             }
         }
 
+        //method that is run when button2 is clicked in the form to update the solutions
         private void button2_Click(object sender, EventArgs e)
         {
             try
@@ -87,7 +114,7 @@ namespace MyAssignmentBugTrack.Developer
             theDate = dateTimePicker1.Value.ToString("yyyy-MM-dd");         
             code = textEditorControl1.Text;
        
-
+            //string connection to connenct to the database
             string connectString = "Data Source=localhost;Database = bugtrackapp ;User Id= root;Password=;SslMode=none";
             MySqlConnection myconn = new MySqlConnection(connectString);
             MySqlCommand command = myconn.CreateCommand();
@@ -96,7 +123,7 @@ namespace MyAssignmentBugTrack.Developer
 
             command.CommandText = "UPDATE tbl_solutions SET bug_id = '" + bugid + "'" + ", description = '" + solutiondescription + "'" + ",date ='" + theDate + "'" + ",code ='" + code + "',snapshot = @IMG WHERE id = " + id;
 
-            myconn.Open();
+            myconn.Open();      //connection open
 
             command.Parameters.Add(new MySqlParameter("@IMG", imageBt));
 
@@ -104,7 +131,19 @@ namespace MyAssignmentBugTrack.Developer
 
             MessageBox.Show("BUGS HAVE SUCCESSFULLY UPDATED");
 
-            this.Close();
+            this.Close(); //connection close
+        }
+
+        private void textEditorControl1_Load(object sender, EventArgs e)
+        {
+            string dric = Application.StartupPath;
+            FileSyntaxModeProvider fsmp;
+            if (Directory.Exists(dric))
+            {
+                fsmp = new FileSyntaxModeProvider(dric);
+                HighlightingManager.Manager.AddSyntaxModeFileProvider(fsmp);
+                textEditorControl1.SetHighlighting("C#");
+            }
         }
     }
 }

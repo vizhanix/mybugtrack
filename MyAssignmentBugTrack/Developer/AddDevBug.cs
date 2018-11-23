@@ -1,4 +1,23 @@
-﻿using MySql.Data.MySqlClient;
+﻿
+
+
+/************************************************************************************
+ ************************************************************************************
+ *										  										  *
+ *		              				                                              *
+ *				 BUG TRACKING APPLICATION 	 Author: Mixon Tandukar 		      *
+ *				    						         						      * 				
+ *						      Date: 2018/23/11  								  *		
+ *																				  *
+ *																				  *
+ *		This form is the add bug page of the application                          *
+ *		 which is named AddDevBug for the developer role                          *
+ *																		          *	
+ *																				  *
+ ************************************************************************************/
+
+
+using MySql.Data.MySqlClient;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -11,11 +30,12 @@ using ICSharpCode.TextEditor.Document;
 using System.IO;
 using System.Windows.Forms;
 
+//namespace of the project
 namespace MyAssignmentBugTrack.Developer
 {
     public partial class AddDevBug : Form
     {
-
+        //variable declatations
         string name = "";
         string combotext = "";
         string theDate = "";
@@ -27,6 +47,7 @@ namespace MyAssignmentBugTrack.Developer
         string code = "";
         string status = "";
 
+        //parameterized constructor
         public AddDevBug(string name)
         {
             InitializeComponent();
@@ -38,17 +59,20 @@ namespace MyAssignmentBugTrack.Developer
 
         }
 
+        /*method that runs to add the data to datagridview by fetching the data from the database*/
         private void AddDevBug_Load(object sender, EventArgs e)
         {
+            //connection string which connects to the database
             string connectString = "Data Source=localhost;Database = bugtrackapp ;User Id= root;Password=;SslMode=none";
             MySqlConnection myconn = new MySqlConnection(connectString);
             MySqlCommand command = myconn.CreateCommand();
             command.CommandText = "SELECT * FROM tbl_products";
-            myconn.Open();
+            myconn.Open(); //connection open
             command.ExecuteNonQuery();
 
             MySqlDataReader reader = command.ExecuteReader();
 
+            //code that appends database pname fields to the combobox
             while (reader.Read())
             {
                 comboBox1.Items.Add(reader.GetString("pname"));
@@ -63,6 +87,7 @@ namespace MyAssignmentBugTrack.Developer
             theDate = dateTimePicker1.Value.ToString("yyyy-MM-dd");
         }
 
+        /*text editor to add code to the form and for the syntax hoghlighting*/
         private void textEditorControl1_Load(object sender, EventArgs e)
         {
             string dric = Application.StartupPath;
@@ -75,6 +100,8 @@ namespace MyAssignmentBugTrack.Developer
             }
         }
 
+
+        //method which runs when button2 is clicked to insert the bug
         private void button2_Click(object sender, EventArgs e)
         {
             byte[] imageBt = null;
@@ -103,13 +130,14 @@ namespace MyAssignmentBugTrack.Developer
 
             command.ExecuteNonQuery();
 
-            MessageBox.Show("BUG HAS SUCCESSFULLY BEEN ADDED!");
+            MessageBox.Show("BUG HAS SUCCESSFULLY BEEN ADDED!"); //success message
 
-            this.Close();
+            this.Close(); //connection close
 
 
         }
 
+        //method that runs when button1 is clicked to open a filedialogbox to choose an image to save to the database
         private void button1_Click(object sender, EventArgs e)
         {
             OpenFileDialog dlg = new OpenFileDialog();

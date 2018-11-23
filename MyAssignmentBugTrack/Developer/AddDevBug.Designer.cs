@@ -46,6 +46,7 @@
             this.label9 = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
             this.label11 = new System.Windows.Forms.Label();
+            this.label12 = new System.Windows.Forms.Label();
             this.label10 = new System.Windows.Forms.Label();
             this.label8 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
@@ -54,7 +55,6 @@
             this.label3 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
-            this.label12 = new System.Windows.Forms.Label();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
@@ -237,6 +237,16 @@
             this.label11.TabIndex = 1;
             this.label11.Text = "Code :";
             // 
+            // label12
+            // 
+            this.label12.AutoSize = true;
+            this.label12.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label12.Location = new System.Drawing.Point(61, 517);
+            this.label12.Name = "label12";
+            this.label12.Size = new System.Drawing.Size(86, 20);
+            this.label12.TabIndex = 1;
+            this.label12.Text = "Snapshot :";
+            // 
             // label10
             // 
             this.label10.AutoSize = true;
@@ -317,22 +327,13 @@
             this.label1.TabIndex = 0;
             this.label1.Text = "Add Bugs";
             // 
-            // label12
-            // 
-            this.label12.AutoSize = true;
-            this.label12.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label12.Location = new System.Drawing.Point(61, 517);
-            this.label12.Name = "label12";
-            this.label12.Size = new System.Drawing.Size(86, 20);
-            this.label12.TabIndex = 1;
-            this.label12.Text = "Snapshot :";
-            // 
             // AddDevBug
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.AutoScroll = true;
             this.BackgroundImage = global::MyAssignmentBugTrack.Properties.Resources.untitled;
-            this.ClientSize = new System.Drawing.Size(1305, 971);
+            this.ClientSize = new System.Drawing.Size(1305, 749);
             this.Controls.Add(this.panel1);
             this.Name = "AddDevBug";
             this.Text = "AddDevBug";

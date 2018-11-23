@@ -168,6 +168,7 @@
             this.textEditorControl1.Name = "textEditorControl1";
             this.textEditorControl1.Size = new System.Drawing.Size(351, 357);
             this.textEditorControl1.TabIndex = 4;
+            this.textEditorControl1.Load += new System.EventHandler(this.textEditorControl1_Load);
             // 
             // textBox7
             // 
@@ -355,8 +356,9 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.AutoScroll = true;
             this.BackgroundImage = global::MyAssignmentBugTrack.Properties.Resources.untitled;
-            this.ClientSize = new System.Drawing.Size(1131, 1061);
+            this.ClientSize = new System.Drawing.Size(1148, 749);
             this.Controls.Add(this.panel1);
             this.Name = "BugReport";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;

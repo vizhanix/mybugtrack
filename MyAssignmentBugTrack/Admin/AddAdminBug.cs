@@ -1,4 +1,22 @@
-﻿using ICSharpCode.TextEditor.Document;
+﻿
+
+
+/************************************************************************************
+ ************************************************************************************
+ *										  										  *
+ *		              				                                              *
+ *				 BUG TRACKING APPLICATION 	 Author: Mixon Tandukar 		      *
+ *				    						         						      * 				
+ *						      Date: 2018/23/11  								  *		
+ *																				  *
+ *																				  *
+ *		This form is the add bugs page of the application which is named          *
+ *		AddAdminBug for the admin role to see an add bugs                         *
+ *																				  *	
+ *																				  *
+ ************************************************************************************/
+
+using ICSharpCode.TextEditor.Document;
 using MySql.Data.MySqlClient;
 using System;
 using System.Collections.Generic;
@@ -11,10 +29,12 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
+//namespace of the project
 namespace MyAssignmentBugTrack.Admin
 {
     public partial class AddAdminBug : Form
     {
+        //variable declarations field
         string name = "";
         string combotext = "";
         string theDate = "";
@@ -26,19 +46,24 @@ namespace MyAssignmentBugTrack.Admin
         string code = "";
         string status = "";
 
+        //default constructor
         public AddAdminBug()
         {
             InitializeComponent();
         }
 
+        //constructor that takes parameters
         public AddAdminBug(string name)
         {
             InitializeComponent();
             this.name = name;
         }
 
+
+        //method that loads when the appropriate form gets load while executing the program
         private void AddAdminBug_Load(object sender, EventArgs e)
         {
+            //connection string to connect to the database and manupulate data in the database
             string connectString = "Data Source=localhost;Database = bugtrackapp ;User Id= root;Password=;SslMode=none";
             MySqlConnection myconn = new MySqlConnection(connectString);
             MySqlCommand command = myconn.CreateCommand();
@@ -48,8 +73,10 @@ namespace MyAssignmentBugTrack.Admin
 
             MySqlDataReader reader = command.ExecuteReader();
 
+            //loop when after the data is collected from the database is to set to combobox
             while (reader.Read())
             {
+                //code to add the dynamic data to the combobox for options to select
                 comboBox1.Items.Add(reader.GetString("pname"));
 
             }
@@ -62,6 +89,7 @@ namespace MyAssignmentBugTrack.Admin
             theDate = dateTimePicker1.Value.ToString("yyyy-MM-dd");
         }
 
+        //method  for the syntax highlighting 
         private void textEditorControl1_Load(object sender, EventArgs e)
         {
             string dric = Application.StartupPath;
@@ -74,8 +102,10 @@ namespace MyAssignmentBugTrack.Admin
             }
         }
 
+        //method to read the image and save the provided data to the database as in adding bugs
         private void button2_Click(object sender, EventArgs e)
         {
+            //code to read the byte file type image from the database
             byte[] imageBt = null;
             FileStream fstream = new FileStream(this.textBox8.Text, FileMode.Open, FileAccess.Read);
             BinaryReader br = new BinaryReader(fstream);
@@ -91,7 +121,7 @@ namespace MyAssignmentBugTrack.Admin
             code = textEditorControl1.Text;
             status = textBox7.Text;
 
-
+            //connection string which is used to connect to the database and manupulate the contents in the database
             string connectString = "Data Source=localhost;Database = bugtrackapp ;User Id= root;Password=;SslMode=none";
             MySqlConnection myconn = new MySqlConnection(connectString);
             MySqlCommand command = myconn.CreateCommand();
@@ -102,12 +132,13 @@ namespace MyAssignmentBugTrack.Admin
 
             command.ExecuteNonQuery();
 
-            MessageBox.Show("BUG HAS SUCCESSFULLY BEEN ADDED!");
+            MessageBox.Show("BUG HAS SUCCESSFULLY BEEN ADDED!"); //success message
 
             this.Close();
 
         }
 
+        //method to open a dialog option box when the button is clicked to give admin the choice to upload the image file
         private void button1_Click(object sender, EventArgs e)
         {
             OpenFileDialog dlg = new OpenFileDialog();

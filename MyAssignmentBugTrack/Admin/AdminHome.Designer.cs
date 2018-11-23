@@ -37,6 +37,7 @@
             this.logoutToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.addProductToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.logoutToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
+            this.feature1ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -94,6 +95,8 @@
             // 
             // logoutToolStripMenuItem
             // 
+            this.logoutToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.feature1ToolStripMenuItem});
             this.logoutToolStripMenuItem.Name = "logoutToolStripMenuItem";
             this.logoutToolStripMenuItem.Size = new System.Drawing.Size(121, 20);
             this.logoutToolStripMenuItem.Text = "Additional Features";
@@ -111,6 +114,13 @@
             this.logoutToolStripMenuItem1.Size = new System.Drawing.Size(57, 20);
             this.logoutToolStripMenuItem1.Text = "Logout";
             this.logoutToolStripMenuItem1.Click += new System.EventHandler(this.logoutToolStripMenuItem1_Click);
+            // 
+            // feature1ToolStripMenuItem
+            // 
+            this.feature1ToolStripMenuItem.Name = "feature1ToolStripMenuItem";
+            this.feature1ToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.feature1ToolStripMenuItem.Text = "Feature 1";
+            this.feature1ToolStripMenuItem.Click += new System.EventHandler(this.feature1ToolStripMenuItem_Click);
             // 
             // AdminHome
             // 
@@ -142,5 +152,6 @@
         private System.Windows.Forms.ToolStripMenuItem logoutToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem logoutToolStripMenuItem1;
         private System.Windows.Forms.ToolStripMenuItem addProductToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem feature1ToolStripMenuItem;
     }
 }

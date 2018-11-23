@@ -1,4 +1,23 @@
-﻿using MySql.Data.MySqlClient;
+﻿
+
+
+/************************************************************************************
+ ************************************************************************************
+ *										  										  *
+ *		              				                                              *
+ *				 BUG TRACKING APPLICATION 	 Author: Mixon Tandukar 		      *
+ *				    						         						      * 				
+ *						      Date: 2018/23/11  								  *		
+ *																				  *
+ *																				  *
+ *		This form is the adminsolutionsreport page of the application             *
+ *		 which is named AdminSolutionReport for the admin role                    *
+ *																		          *	
+ *																				  *
+ ************************************************************************************/
+
+using ICSharpCode.TextEditor.Document;
+using MySql.Data.MySqlClient;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -120,6 +139,18 @@ namespace MyAssignmentBugTrack.Admin
             MessageBox.Show("SOLUTION SUCCESSFULLY DELETED");
 
             this.Close();
+        }
+
+        private void textEditorControl1_Load(object sender, EventArgs e)
+        {
+            string dric = Application.StartupPath;
+            FileSyntaxModeProvider fsmp;
+            if (Directory.Exists(dric))
+            {
+                fsmp = new FileSyntaxModeProvider(dric);
+                HighlightingManager.Manager.AddSyntaxModeFileProvider(fsmp);
+                textEditorControl1.SetHighlighting("C#");
+            }
         }
 
         private void dataGridView1_MouseClick(object sender, MouseEventArgs e)

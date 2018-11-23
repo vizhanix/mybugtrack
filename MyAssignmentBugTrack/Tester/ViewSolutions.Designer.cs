@@ -175,8 +175,9 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.AutoScroll = true;
             this.BackgroundImage = global::MyAssignmentBugTrack.Properties.Resources.untitled;
-            this.ClientSize = new System.Drawing.Size(990, 966);
+            this.ClientSize = new System.Drawing.Size(990, 749);
             this.Controls.Add(this.panel1);
             this.Name = "ViewSolutions";
             this.Text = "ViewSolutions";
